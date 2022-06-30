@@ -1,0 +1,30 @@
+<div class="container" style="height: 100vh; justify-content: center;">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-5 col-sm-6">
+            <form>
+                <div class="row">
+                    <div class="col-4">
+                        <div style="background-color:#16834e ; color: #fff;" class="col-form-label">
+                            Enter
+                            Exam
+                            Code:
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" style="margin-left: -20px;" name="exam-code" #examcode>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success  mt-2 me-6" (click)="getExamDetails(examcode.value)">START</button>
+                </div>
+                <br>
+                <div [hidden]="!isClicked" class="text-justify">
+                    <h3 class="bg-success text-white" style="text-align:center">All The Best !!!</h3>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

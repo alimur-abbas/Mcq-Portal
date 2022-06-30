@@ -1,0 +1,99 @@
+<div class="card" style="width: auto; height: auto;
+ font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(83, 18, 139);">
+  <div class="card-header">
+    <h1><b>Welcome To Test</b> </h1>
+    <h4 style="text-align: right; color: black; font-family: Verdana, Geneva, Tahoma, sans-serif;">Time Left:- {{min}}
+      min:{{sec}} sec</h4>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card" style="width: 15rem;margin-top: 20px; margin-left: 10px;margin-bottom: 5rem;">
+      <div class="card-body">
+        <div class="scrollbar">
+          <div *ngFor="let button of btn;">
+            <button class="btn" style="margin: 10px; height: 40px;width: 70px;
+             background-color: rgb(66, 166, 228); color: white; font-weight: bold;
+              border-top-right-radius: 20px;border-bottom-right-radius: 20px; " (click)="onClickButtonList(button)"
+              #button>{{button}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="card" style="min-height: 65vh; width: 70vw ;
+      margin-top: 20px; margin-bottom: 10px;">
+      <div class="card-body">
+        <div class="scrollbar">
+          <b>QUESTION:{{slNo}}</b>
+          <b>
+            <p style="margin: 5px;">{{display.questionDescription}}</p>
+          </b>
+          <div *ngFor="let option of display.optionModelList">
+            <input type="radio" name="{{display.questionId}}" value="{{option.optionLabel}}"
+              (change)="onChange($event)">
+            {{option.optionDescription}}
+          </div>
+          <!-- <div class="row">
+            <div class="col-sm-6">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              {{a}}
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              {{b}}
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              {{c}}
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              {{d}}
+            </div>
+          </div> -->
+          <br>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-left:30% ;">
+      <button class="btn" style="margin-right: 3px; background-color: darkgray;
+        border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; width: 50px;" [disabled]="slNo==1"
+        (click)="onClickButton(+slNo-1 , 0)">
+        <b>
+          < </b> </button>
+      <button class="btn" style=" margin-left: 3px; background-color: darkgray; border-top: 5pc;
+        border-top-right-radius: 2rem; border-bottom-right-radius: 2rem;width: 50px;"
+        [disabled]="slNo==questions.length" (click)="onClickButton(+slNo+1 , 1)"><b> > </b> </button>
+      <button class="btn btn-success" style="margin-left: 27rem;" data-bs-toggle="modal"
+        data-bs-target="#submitModal">Submit</button>
+      <!-- modal -->
+      <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              Are you sure you want to submit?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

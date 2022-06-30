@@ -1,0 +1,3 @@
+export enum ExamType {
+    RETAKE, ONCE_SCHEDULE_MINUTE, ONCE_SCHEDULE_DAYS
+}
