@@ -20,9 +20,9 @@ export class WelcomeComponent implements OnInit {
   }
   proceed() {
     console.log("1");
-    // this.examService.readCsv().subscribe((data) => {
-    //   console.log(data);
-    // });
+    this.examService.readCsv().subscribe((data) => {
+      console.log(data);
+    });
     this.router.navigate(["/examcode"]);
     console.log("3");
   }

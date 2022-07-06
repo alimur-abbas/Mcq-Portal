@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExaminationModel } from '../model/examination.model';
-import { QuestionModel } from '../model/question.model';
-import { UserExamAttempt } from '../model/userExamAttempt.model';
-import { UserExamAttemptWrapper } from '../model/userExamAttemptWrapper.model';
-import { McqPortalService } from '../service/mcq-portal.service';
+import { ExaminationModel } from '../../model/examination.model';
+import { QuestionModel } from '../../model/question.model';
+import { UserExamAttempt } from '../../model/userExamAttempt.model';
+import { UserExamAttemptWrapper } from '../../model/userExamAttemptWrapper.model';
+import { McqPortalService } from '../../service/mcq-portal.service';
 
 
 @Component({
@@ -24,9 +24,10 @@ export class ExamCodeComponent implements OnInit {
   ngOnInit(): void {
   }
   async getExamDetails(examcode: string) {
-    const response: any = await this.examService.getExamDetail(examcode).toPromise();
-    console.log(response);
+    //const response: any = await this.examService.getExamDetail(examcode).toPromise();
+    // console.log(response);
     this.isClicked = true;
+    this.examService.copyExamCode(examcode);
 
     // console.log(examcode);
 
@@ -43,14 +44,14 @@ export class ExamCodeComponent implements OnInit {
 
 
     // })
-    this.examinationmodel = response.examinationModel;
+    // this.examinationmodel = response.examinationModel;
     // console.log(this.examinationmodel);
 
 
-    this.questionModel = response.examinationModel.questionModelList;
+    //this.questionModel = response.examinationModel.questionModelList;
     // console.log(this.questionModel);
 
-    this.userexamAttempt = response.userExamAttempt;
+    //this.userexamAttempt = response.userExamAttempt;
   }
 
 

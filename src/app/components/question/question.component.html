@@ -78,8 +78,8 @@
       <button class="btn" style=" margin-left: 3px; background-color: darkgray; border-top: 5pc;
         border-top-right-radius: 2rem; border-bottom-right-radius: 2rem;width: 50px;"
         [disabled]="slNo==questions.length" (click)="onClickButton(+slNo+1 , 1)"><b> > </b> </button>
-      <button class="btn btn-success" style="margin-left: 27rem;" data-bs-toggle="modal"
-        data-bs-target="#submitModal">Submit</button>
+      <button class="btn btn-success" style="margin-left: 27rem;" data-bs-toggle="modal" data-bs-target="#submitModal"
+        (click)="onSubmit()">Submit</button>
       <!-- modal -->
       <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
