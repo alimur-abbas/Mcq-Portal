@@ -1,6 +1,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { UserAnswerModel } from '../model/userAnswer.model';
 import { UserResultQueryRequest } from '../model/userResultQuery.model';
@@ -12,15 +13,22 @@ export class McqPortalService {
   private baseUrl = 'http://localhost:8080/';
   examCode: string;
   score: Number;
+  cookies: string;
 
+  constructor(private http: HttpClient, private cookiesService: CookieService) { }
+  // getCookies(name: string) {
+  //   console.log("3");
 
-  constructor(private http: HttpClient) { }
+  //   this.cookies = this.cookiesService.get("JSESSIONID");
+  //   console.log(this.cookies);
+
+  // }
   readCsv(): Observable<any> {
     console.log("2");
     console.log(`${this.baseUrl}read-csv`);
 
 
-    return this.http.get(`${this.baseUrl}read-csv`, { headers: new HttpHeaders().set("Access-Control-Allow-Origin", "http://localhost:4200") })
+    return this.http.get(`${this.baseUrl}read-csv`);
   }
   copyExamCode(exam: string) {
     this.examCode = exam;

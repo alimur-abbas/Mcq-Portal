@@ -7,7 +7,7 @@ import { ResultComponent } from './components/result/result.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: WelcomeComponent },
   { path: "welcome", component: WelcomeComponent },
   { path: "question", component: QuestionComponent },
   { path: "examcode", component: ExamCodeComponent },

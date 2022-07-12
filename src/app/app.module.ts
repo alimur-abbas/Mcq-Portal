@@ -11,6 +11,7 @@ import { McqPortalService } from './service/mcq-portal.service';
 import { ExamCodeComponent } from './components/exam-code/exam-code.component';
 import { ResultComponent } from './components/result/result.component';
 import { LoginComponent } from './components/login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [McqPortalService, ExamCodeComponent],
+  providers: [McqPortalService, ExamCodeComponent, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
