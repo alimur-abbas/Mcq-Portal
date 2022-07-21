@@ -130,12 +130,18 @@ export class QuestionComponent implements OnInit {
 
     }
   }
-  async onChange(Ans: any) {
+  onChange(Ans: any) {
+    debugger
     this.userAnswer.attemptId = this.userexamAttempt.attemptId;
     this.userAnswer.questionUuid = Ans.target.name;
     this.userAnswer.answerLabel = Ans.target.value;
-    const response = await this.examService.saveUserResponse(this.userAnswer).toPromise();
-    console.log(response);
+    this.examService.saveUserResponse(this.userAnswer).subscribe(data => {
+      console.log(data);
+
+    }, error => {
+      console.log(error);
+
+    });
 
 
     // console.log(Ans.target.value);
